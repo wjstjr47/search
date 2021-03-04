@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+        <title>동영상검색</title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=296843c37a5753ce7961fe40ba389811"></script>
+
+        <style>
+            #list img{width:50; height:70;}
+            #list {margin-top:10px; margin-bottom: 10px;}
+            #list li{padding:10px;}
+        </style>
+    </head>
+    <body>
+        <!--이미지목록 페이지-->
+        <div data-role="page" id="main" class="gallery-page">
+            <div data-role="header" data-theme="a">
+                <a href="index.html" target="_self" data-icon="home" data-iconpos="notext">Home</a>
+                <h2>Image Search</h2>
+            </div>
+            <div data-role="content" >
+                <input type="text" id="txtQuery" value="명화"/>
+                <div id="list" style="overflow: hidden;width: 400px;padding: 10px;background: black;"></div>
+                <ul data-role="listview" id="list"></ul>
+                <script id="temp" type="text/x-handlebars-template">
+                    {{#each documents}}
+                        <div style="float: left;width: 60px;margin: 10px;">
+                            <a href="{{image_url}}"><img src="{{image_url}}"/></a>
+                        </div>
+                    {{/each}}
+                    </script>
+                    <input type="button"  value="More" id="btnMore"/>
+            </div>
+            <div data-role="footer" data-theme="a" data-position="fixed">
+                <h2>인천일보 아카데미</h2>
+            </div>
+        </div>
+    </body>
+    <script>
+        var url="https://dapi.kakao.com/v2/search/image";
+    </script>
+    <script src="script.js"></script>
+</html>
